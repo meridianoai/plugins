@@ -12,9 +12,10 @@ claude plugin marketplace add meridianoai/plugins
 claude plugin install <plugin>@meridianoai-plugins
 ```
 
-Senza una chiave SSH per GitHub, imposta `export CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` prima di questi
-comandi e tienila impostata: le installazioni da `/plugin` dentro una sessione e gli aggiornamenti
-non ripiegano da soli su HTTPS
+Senza una chiave SSH per GitHub, imposta la variabile `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` in modo
+permanente (nel profilo della shell, o sotto `env` in `~/.claude/settings.json`) prima di questi
+comandi: le installazioni da `/plugin` dentro una sessione e gli aggiornamenti non ripiegano da
+soli su HTTPS
 ([hosting di un marketplace](https://code.claude.com/docs/en/plugins/host-marketplace)).
 
 ## Plugin
@@ -26,8 +27,11 @@ non ripiegano da soli su HTTPS
 ## Aggiornare un plugin
 
 Passare a un nuovo rilascio è una PR su questo repo che cambia `ref` e `sha` della voce: `sha` è
-il commit di 40 caratteri del tag e, quando ci sono entrambi, Claude Code fa il checkout di `sha`.
-Le modifiche ai plugin vanno come PR al repo originale, non qui.
+l'hash di 40 caratteri del commit del tag e, quando ci sono entrambi, Claude Code fa il checkout di
+`sha`. Il nuovo tag deve portare un `version` diverso nel `plugin.json` del plugin: con lo stesso
+`version`, chi ha già installato il plugin non riceve l'aggiornamento
+([versioni e aggiornamenti](https://code.claude.com/docs/en/plugins/loading)). Le modifiche ai
+plugin vanno come PR al repo originale, non qui.
 
 ## Perché si chiama così
 
