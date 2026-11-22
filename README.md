@@ -58,7 +58,8 @@ plugin vanno come PR al repo originale, non qui.
 Per `dev-agent-skills` un tag vale per tutti e cinque i plugin: la PR cambia `ref` e `sha` in tutte
 e cinque le voci insieme, con lo stesso valore, e aggiorna la tabella sopra. Chi ha già installato
 riceve l'aggiornamento solo dei plugin il cui `version` nel `plugin.json` è cambiato fra i due
-tag; gli altri restano sulla copia che hanno, ed è corretto, perché il loro contenuto è lo stesso.
+tag; gli altri restano sulla copia che hanno. Per questo ogni plugin che cambia fra due tag deve
+alzare il proprio `version`, o le sue modifiche non arrivano a chi l'ha già installato.
 
 ## Perché si chiama così
 
