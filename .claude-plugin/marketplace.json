@@ -20,8 +20,8 @@
         "source": "git-subdir",
         "url": "fvadicamo/dev-agent-skills",
         "path": "plugins/github-workflow",
-        "ref": "v1.16.0",
-        "sha": "8e710c57b4aa34fec63752ccf04a47adb4a8be65"
+        "ref": "github-workflow--v1.4.2",
+        "sha": "78fa9c0dadfb4395bcef7e2b08dd04c7d9c36f0c"
       }
     },
     {
@@ -30,8 +30,8 @@
         "source": "git-subdir",
         "url": "fvadicamo/dev-agent-skills",
         "path": "plugins/skill-authoring",
-        "ref": "v1.16.0",
-        "sha": "8e710c57b4aa34fec63752ccf04a47adb4a8be65"
+        "ref": "skill-authoring--v1.4.0",
+        "sha": "78fa9c0dadfb4395bcef7e2b08dd04c7d9c36f0c"
       }
     },
     {
@@ -40,8 +40,8 @@
         "source": "git-subdir",
         "url": "fvadicamo/dev-agent-skills",
         "path": "plugins/guardrails",
-        "ref": "v1.16.0",
-        "sha": "8e710c57b4aa34fec63752ccf04a47adb4a8be65"
+        "ref": "guardrails--v1.7.6",
+        "sha": "7f7ef28d69e0cf5b49f0a327f9a587126bff6a32"
       }
     },
     {
@@ -50,8 +50,8 @@
         "source": "git-subdir",
         "url": "fvadicamo/dev-agent-skills",
         "path": "plugins/privacy-guard",
-        "ref": "v1.16.0",
-        "sha": "8e710c57b4aa34fec63752ccf04a47adb4a8be65"
+        "ref": "privacy-guard--v1.3.3",
+        "sha": "23114c993b1aad64662bb2476655081e96a6b5b4"
       }
     },
     {
@@ -60,7 +60,7 @@
         "source": "git-subdir",
         "url": "fvadicamo/dev-agent-skills",
         "path": "plugins/decision-records",
-        "ref": "v1.16.0",
+        "ref": "decision-records--v0.3.0",
         "sha": "8e710c57b4aa34fec63752ccf04a47adb4a8be65"
       }
     }

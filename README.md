@@ -23,11 +23,11 @@ soli su HTTPS
 | Plugin | Repo | Tag | Versione del plugin |
 |---|---|---|---|
 | `session-tracker` | [fvadicamo/session-tracker-skill](https://github.com/fvadicamo/session-tracker-skill) | v1.0.0 | 1.0.0 |
-| `github-workflow` | [fvadicamo/dev-agent-skills, `plugins/github-workflow`](https://github.com/fvadicamo/dev-agent-skills/tree/v1.16.0/plugins/github-workflow) | v1.16.0 | 1.4.2 |
-| `skill-authoring` | [fvadicamo/dev-agent-skills, `plugins/skill-authoring`](https://github.com/fvadicamo/dev-agent-skills/tree/v1.16.0/plugins/skill-authoring) | v1.16.0 | 1.4.0 |
-| `guardrails` | [fvadicamo/dev-agent-skills, `plugins/guardrails`](https://github.com/fvadicamo/dev-agent-skills/tree/v1.16.0/plugins/guardrails) | v1.16.0 | 1.7.6 |
-| `privacy-guard` | [fvadicamo/dev-agent-skills, `plugins/privacy-guard`](https://github.com/fvadicamo/dev-agent-skills/tree/v1.16.0/plugins/privacy-guard) | v1.16.0 | 1.3.3 |
-| `decision-records` | [fvadicamo/dev-agent-skills, `plugins/decision-records`](https://github.com/fvadicamo/dev-agent-skills/tree/v1.16.0/plugins/decision-records) | v1.16.0 | 0.3.0 |
+| `github-workflow` | [fvadicamo/dev-agent-skills, `plugins/github-workflow`](https://github.com/fvadicamo/dev-agent-skills/tree/github-workflow--v1.4.2/plugins/github-workflow) | github-workflow--v1.4.2 | 1.4.2 |
+| `skill-authoring` | [fvadicamo/dev-agent-skills, `plugins/skill-authoring`](https://github.com/fvadicamo/dev-agent-skills/tree/skill-authoring--v1.4.0/plugins/skill-authoring) | skill-authoring--v1.4.0 | 1.4.0 |
+| `guardrails` | [fvadicamo/dev-agent-skills, `plugins/guardrails`](https://github.com/fvadicamo/dev-agent-skills/tree/guardrails--v1.7.6/plugins/guardrails) | guardrails--v1.7.6 | 1.7.6 |
+| `privacy-guard` | [fvadicamo/dev-agent-skills, `plugins/privacy-guard`](https://github.com/fvadicamo/dev-agent-skills/tree/privacy-guard--v1.3.3/plugins/privacy-guard) | privacy-guard--v1.3.3 | 1.3.3 |
+| `decision-records` | [fvadicamo/dev-agent-skills, `plugins/decision-records`](https://github.com/fvadicamo/dev-agent-skills/tree/decision-records--v0.3.0/plugins/decision-records) | decision-records--v0.3.0 | 0.3.0 |
 
 I plugin di `dev-agent-skills` stanno in sottocartelle dello stesso repo, quindi le loro voci usano
 la fonte `git-subdir` (`url`, `path`, `ref`, `sha`), che scarica solo la cartella del plugin.
@@ -48,18 +48,20 @@ claude plugin install decision-records@meridianoai-plugins
 
 ## Aggiornare un plugin
 
-Passare a un nuovo rilascio è una PR su questo repo che cambia `ref` e `sha` della voce: `sha` è
-l'hash di 40 caratteri del commit del tag e, quando ci sono entrambi, Claude Code fa il checkout di
-`sha`. Il nuovo tag deve portare un `version` diverso nel `plugin.json` del plugin: con lo stesso
-`version`, chi ha già installato il plugin non riceve l'aggiornamento
-([versioni e aggiornamenti](https://code.claude.com/docs/en/plugins/loading)). Le modifiche ai
-plugin vanno come PR al repo originale, non qui.
+Ogni voce si sposta da sola, quando il suo plugin rilascia una versione nuova:
 
-Per `dev-agent-skills` un tag vale per tutti e cinque i plugin: la PR cambia `ref` e `sha` in tutte
-e cinque le voci insieme, con lo stesso valore, e aggiorna la tabella sopra. Chi ha già installato
-riceve l'aggiornamento solo dei plugin il cui `version` nel `plugin.json` è cambiato fra i due
-tag; gli altri restano sulla copia che hanno. Per questo ogni plugin che cambia fra due tag deve
-alzare il proprio `version`, o le sue modifiche non arrivano a chi l'ha già installato.
+1. nel repo del plugin, il `version` del suo `plugin.json` sale: con lo stesso `version`, chi ha
+   già installato il plugin non riceve l'aggiornamento
+   ([versioni e aggiornamenti](https://code.claude.com/docs/en/plugins/loading));
+2. il rilascio ha un tag. In un repo con più plugin, come `dev-agent-skills`, è un tag per plugin
+   nella forma `<plugin>--v<version>`, creato con `claude plugin tag` dalla cartella del plugin
+   ([tag dei rilasci](https://code.claude.com/docs/en/plugins/dependencies)); in un repo con un
+   plugin solo, come `session-tracker-skill`, è il tag del rilascio (`v1.0.0`);
+3. una PR su questo repo cambia la sola voce di quel plugin: `ref` diventa il nuovo tag e `sha`
+   l'hash di 40 caratteri del suo commit (quando ci sono entrambi, Claude Code fa il checkout di
+   `sha`), e la tabella sopra si aggiorna.
+
+Le modifiche ai plugin vanno come PR al repo originale, non qui.
 
 ## Perché si chiama così
 
