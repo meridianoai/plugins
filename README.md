@@ -1,9 +1,9 @@
 # Catalogo dei plugin Claude Code di Meridiano AI
 
-Marketplace di plugin per [Claude Code](https://code.claude.com/docs/en/plugins/marketplace-reference.md)
-distribuiti da Meridiano AI. Il file è `.claude-plugin/marketplace.json`, con una voce per plugin:
-ogni voce punta al repo originale del plugin ed è fissata su un tag e sul suo commit, quindi chi
-installa da qui riceve lo stesso codice finché la voce non cambia.
+Marketplace di plugin per [Claude Code](https://code.claude.com/docs/en/overview) distribuiti da
+Meridiano AI. Il file è `.claude-plugin/marketplace.json`, con una voce per plugin: ogni voce punta
+al repo originale del plugin ed è fissata su un tag e sul suo commit, quindi chi installa da qui
+riceve lo stesso codice finché la voce non cambia.
 
 ## Installazione
 
@@ -11,6 +11,11 @@ installa da qui riceve lo stesso codice finché la voce non cambia.
 claude plugin marketplace add meridianoai/plugins
 claude plugin install <plugin>@meridianoai-plugins
 ```
+
+Senza una chiave SSH per GitHub, imposta `export CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` prima di questi
+comandi e tienila impostata: le installazioni da `/plugin` dentro una sessione e gli aggiornamenti
+non ripiegano da soli su HTTPS
+([hosting di un marketplace](https://code.claude.com/docs/en/plugins/host-marketplace)).
 
 ## Plugin
 
@@ -28,14 +33,15 @@ Le modifiche ai plugin vanno come PR al repo originale, non qui.
 
 - Il repo si chiama `plugins` e non `claude-plugins` perché lo stesso repo può ospitare i
   cataloghi di più strumenti: Claude Code legge `.claude-plugin/marketplace.json`, e la
-  [documentazione dei plugin Codex](https://developers.openai.com/codex/plugins/build) indica
-  `.agents/plugins/marketplace.json` e accetta `.claude-plugin/marketplace.json` come
-  «legacy-compatible». Che cosa succeda quando nello stesso repo ci sono entrambi i file non è
-  stato misurato.
+  [documentazione dei plugin di OpenAI](https://developers.openai.com/plugins/build/plugins)
+  indica `.agents/plugins/marketplace.json` e dice che l'app desktop di ChatGPT legge anche
+  `.claude-plugin/marketplace.json` come «legacy-compatible». Che cosa succeda quando nello stesso
+  repo ci sono entrambi i file non è stato misurato.
 - Il suffisso `-plugins` è quello che Anthropic usa per le raccolte di plugin
-  (`claude-plugins-official`, `knowledge-work-plugins`), e `acme-corp/plugins` è l'esempio di
-  repo di un'organizzazione nella
-  [marketplace reference](https://code.claude.com/docs/en/plugins/marketplace-reference.md).
+  (`claude-plugins-official`, `knowledge-work-plugins`), e `acme-corp/plugins` compare come
+  esempio nella
+  [marketplace reference](https://code.claude.com/docs/en/plugins/marketplace-reference).
 - Il marketplace si chiama `meridianoai-plugins`, che è anche il nome della cartella in cui
-  Claude Code scarica un marketplace aggiunto come `meridianoai/plugins`: la reference segnala che
-  un altro marketplace con quel nome verrebbe rifiutato.
+  Claude Code scarica un marketplace aggiunto come `meridianoai/plugins`: così il marketplace
+  occupa un nome solo, perché con un nome diverso Claude Code rifiuterebbe comunque un altro
+  marketplace chiamato come la cartella.
