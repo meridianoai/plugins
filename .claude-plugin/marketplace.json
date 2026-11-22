@@ -1,0 +1,18 @@
+{
+  "name": "meridianoai-plugins",
+  "owner": { "name": "Meridiano AI" },
+  "description": "Catalogo dei plugin Claude Code distribuiti da Meridiano AI, ciascuno fissato su un rilascio.",
+  "plugins": [
+    {
+      "name": "session-tracker",
+      "source": {
+        "source": "github",
+        "repo": "fvadicamo/session-tracker-skill",
+        "ref": "v1.0.0",
+        "sha": "a297ac5399dfc088e5890bbea9f4db004139820a"
+      },
+      "description": "Map, classify and navigate Claude Code sessions across nodes, with the stk dispatcher and a SessionStart hook.",
+      "category": "productivity"
+    }
+  ]
+}
