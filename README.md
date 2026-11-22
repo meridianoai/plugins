@@ -35,10 +35,10 @@ la fonte `git-subdir` (`url`, `path`, `ref`, `sha`), che scarica solo la cartell
 ## Non installare lo stesso plugin da due cataloghi
 
 Se hai già un plugin da un altro catalogo (per esempio `decision-records@dev-agent-skills`),
-disinstallalo prima di installarlo da qui, o installalo solo da lì. Con due copie abilitate dello
+disinstallalo prima di installarlo da qui, oppure tienilo solo da lì. Con due copie abilitate dello
 stesso plugin le skill si caricano due volte, e gli hook girano per una copia sola, quella che
 Claude Code carica per prima, che può non essere la versione fissata qui
-([hook con due plugin dello stesso nome](https://code.claude.com/docs/en/plugins/loading)).
+([hook con due plugin dello stesso nome](https://code.claude.com/docs/en/plugins/loading#hooks-when-two-enabled-plugins-share-a-name)).
 Per vedere da dove viene ciascun plugin: `claude plugin list`.
 
 ```bash
@@ -48,14 +48,14 @@ claude plugin install decision-records@meridianoai-plugins
 
 ## Aggiornare un plugin
 
-Ogni voce si sposta da sola, quando il suo plugin rilascia una versione nuova:
+Ogni voce si aggiorna indipendentemente dalle altre quando il suo plugin rilascia una versione nuova:
 
 1. nel repo del plugin, il `version` del suo `plugin.json` sale: con lo stesso `version`, chi ha
    già installato il plugin non riceve l'aggiornamento
-   ([versioni e aggiornamenti](https://code.claude.com/docs/en/plugins/loading));
+   ([versioni e aggiornamenti](https://code.claude.com/docs/en/plugins/loading#versions-and-updates));
 2. il rilascio ha un tag. In un repo con più plugin, come `dev-agent-skills`, è un tag per plugin
    nella forma `<plugin>--v<version>`, creato con `claude plugin tag` dalla cartella del plugin
-   ([tag dei rilasci](https://code.claude.com/docs/en/plugins/dependencies)); in un repo con un
+   ([tag dei rilasci](https://code.claude.com/docs/en/plugins/dependencies#tag-plugin-releases-for-version-resolution)); in un repo con un
    plugin solo, come `session-tracker-skill`, è il tag del rilascio (`v1.0.0`);
 3. una PR su questo repo cambia la sola voce di quel plugin: `ref` diventa il nuovo tag e `sha`
    l'hash di 40 caratteri del suo commit (quando ci sono entrambi, Claude Code fa il checkout di
