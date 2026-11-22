@@ -34,7 +34,7 @@ la fonte `git-subdir` (`url`, `path`, `ref`, `sha`), che scarica solo la cartell
 
 ## Non installare lo stesso plugin da due cataloghi
 
-Se hai già un plugin da un altro catalogo (per esempio `decision-records@dev-agent-skills`),
+Se hai già uno di questi plugin da un altro catalogo (per esempio `decision-records@dev-agent-skills`),
 disinstallalo prima di installarlo da qui, oppure tienilo solo da lì. Con due copie abilitate dello
 stesso plugin le skill si caricano due volte, e gli hook girano per una copia sola, quella che
 Claude Code carica per prima, che può non essere la versione fissata qui
@@ -48,19 +48,20 @@ claude plugin install decision-records@meridianoai-plugins
 
 ## Aggiornare un plugin
 
-Ogni voce si aggiorna indipendentemente dalle altre quando il suo plugin rilascia una versione nuova:
+Ogni voce si aggiorna con una PR, indipendentemente dalle altre, quando il suo plugin rilascia una
+versione nuova:
 
 1. nel repo del plugin, il `version` del suo `plugin.json` sale: con lo stesso `version`, chi ha
    già installato il plugin non riceve l'aggiornamento
    ([versioni e aggiornamenti](https://code.claude.com/docs/en/plugins/loading#versions-and-updates));
 2. il rilascio ha un tag. In un repo con più plugin, come `dev-agent-skills`, è un tag per plugin
    nella forma `<plugin>--v<version>`, creato con `claude plugin tag` dalla cartella del plugin
-   ([tag dei rilasci](https://code.claude.com/docs/en/plugins/dependencies#tag-plugin-releases-for-version-resolution)); in un repo con un
+   ([tag dei rilasci](https://code.claude.com/docs/en/plugins/dependencies#create-a-release-tag)); in un repo con un
    plugin solo, come `session-tracker-skill`, è il tag del rilascio (`v1.0.0`);
 3. una PR su questo repo cambia la sola voce di quel plugin: `ref` diventa il nuovo tag e `sha`
    l'hash di 40 caratteri del suo commit (quando ci sono entrambi, Claude Code fa il checkout di
-   `sha`); se il `plugin.json` ha cambiato `description`, la voce prende quella nuova, e la tabella
-   sopra si aggiorna.
+   `sha`). La stessa PR aggiorna la tabella sopra e, se il `plugin.json` ha cambiato
+   `description`, copia nella voce quella nuova.
 
 Le modifiche ai plugin vanno come PR al repo originale, non qui.
 
