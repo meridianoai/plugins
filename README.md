@@ -59,7 +59,8 @@ Ogni voce si aggiorna indipendentemente dalle altre quando il suo plugin rilasci
    plugin solo, come `session-tracker-skill`, è il tag del rilascio (`v1.0.0`);
 3. una PR su questo repo cambia la sola voce di quel plugin: `ref` diventa il nuovo tag e `sha`
    l'hash di 40 caratteri del suo commit (quando ci sono entrambi, Claude Code fa il checkout di
-   `sha`), e la tabella sopra si aggiorna.
+   `sha`); se il `plugin.json` ha cambiato `description`, la voce prende quella nuova, e la tabella
+   sopra si aggiorna.
 
 Le modifiche ai plugin vanno come PR al repo originale, non qui.
 
