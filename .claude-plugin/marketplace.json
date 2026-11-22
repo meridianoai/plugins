@@ -13,6 +13,61 @@
       },
       "description": "Map, classify and navigate Claude Code sessions across nodes, with the stk dispatcher and a SessionStart hook.",
       "category": "productivity"
+    },
+    {
+      "name": "github-workflow",
+      "description": "Git commit, PR creation, review, and merge skills following Conventional Commits",
+      "source": {
+        "source": "git-subdir",
+        "url": "fvadicamo/dev-agent-skills",
+        "path": "plugins/github-workflow",
+        "ref": "github-workflow--v1.4.2",
+        "sha": "78fa9c0dadfb4395bcef7e2b08dd04c7d9c36f0c"
+      }
+    },
+    {
+      "name": "skill-authoring",
+      "description": "Guide for creating Claude Code skills following Anthropic's best practices",
+      "source": {
+        "source": "git-subdir",
+        "url": "fvadicamo/dev-agent-skills",
+        "path": "plugins/skill-authoring",
+        "ref": "skill-authoring--v1.4.0",
+        "sha": "78fa9c0dadfb4395bcef7e2b08dd04c7d9c36f0c"
+      }
+    },
+    {
+      "name": "guardrails",
+      "description": "Safety guardrails for running Claude Code with reduced supervision. The guard-destructive PreToolUse hook matches against a normalized view of each command (heredoc bodies and comments stripped, quoted strings neutralized except interpreter arguments like ssh / sh -c / eval / su / doas), so a command that merely mentions a destructive pattern is not flagged. It hard-blocks catastrophic Bash commands (rm -rf /, rsync --delete, docker volume rm) and makes rm/rmdir scope-aware: operations whose operands all resolve inside the allowed workspace (the session project root, temp dirs, any $GUARD_ALLOWED_EXTRA root, or a variable assigned from a bare mktemp earlier in the same command) run silently, while anything outside it (or any glob/variable/escape it cannot resolve) raises a single reflective confirmation. git reset --hard / clean / restore, shred, dd, mkfs still always prompt.",
+      "source": {
+        "source": "git-subdir",
+        "url": "fvadicamo/dev-agent-skills",
+        "path": "plugins/guardrails",
+        "ref": "guardrails--v1.7.6",
+        "sha": "7f7ef28d69e0cf5b49f0a327f9a587126bff6a32"
+      }
+    },
+    {
+      "name": "privacy-guard",
+      "description": "Keeps private infrastructure details out of public repositories. Ships the privacy-guard skill: session rules for what must never cross the public boundary, plus a per-repo pre-commit gate built on a gitignored local denylist and gitleaks. The denylist is never committed, so the hook is a no-op for external contributors and in CI while gitleaks still covers generic secrets.",
+      "source": {
+        "source": "git-subdir",
+        "url": "fvadicamo/dev-agent-skills",
+        "path": "plugins/privacy-guard",
+        "ref": "privacy-guard--v1.3.3",
+        "sha": "23114c993b1aad64662bb2476655081e96a6b5b4"
+      }
+    },
+    {
+      "name": "decision-records",
+      "description": "Creates, supersedes and validates decision records (ADRs) against the convention a collection already follows, instead of against a published spec it may never have adopted. Ships the decision-records skill: a propose-then-write flow that never rewrites an accepted record, and check-decisions.sh, a validator that deduces the filename scheme, section set and status vocabulary from the records already present and reports eight classes of violation with a stable code and an exit status. Ships no template into the target repo, and delegates private-token scanning to privacy-guard rather than keeping a second denylist.",
+      "source": {
+        "source": "git-subdir",
+        "url": "fvadicamo/dev-agent-skills",
+        "path": "plugins/decision-records",
+        "ref": "decision-records--v0.3.0",
+        "sha": "8e710c57b4aa34fec63752ccf04a47adb4a8be65"
+      }
     }
   ]
 }
