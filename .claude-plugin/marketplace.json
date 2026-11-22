@@ -13,6 +13,56 @@
       },
       "description": "Map, classify and navigate Claude Code sessions across nodes, with the stk dispatcher and a SessionStart hook.",
       "category": "productivity"
+    },
+    {
+      "name": "github-workflow",
+      "source": {
+        "source": "git-subdir",
+        "url": "fvadicamo/dev-agent-skills",
+        "path": "plugins/github-workflow",
+        "ref": "v1.16.0",
+        "sha": "8e710c57b4aa34fec63752ccf04a47adb4a8be65"
+      }
+    },
+    {
+      "name": "skill-authoring",
+      "source": {
+        "source": "git-subdir",
+        "url": "fvadicamo/dev-agent-skills",
+        "path": "plugins/skill-authoring",
+        "ref": "v1.16.0",
+        "sha": "8e710c57b4aa34fec63752ccf04a47adb4a8be65"
+      }
+    },
+    {
+      "name": "guardrails",
+      "source": {
+        "source": "git-subdir",
+        "url": "fvadicamo/dev-agent-skills",
+        "path": "plugins/guardrails",
+        "ref": "v1.16.0",
+        "sha": "8e710c57b4aa34fec63752ccf04a47adb4a8be65"
+      }
+    },
+    {
+      "name": "privacy-guard",
+      "source": {
+        "source": "git-subdir",
+        "url": "fvadicamo/dev-agent-skills",
+        "path": "plugins/privacy-guard",
+        "ref": "v1.16.0",
+        "sha": "8e710c57b4aa34fec63752ccf04a47adb4a8be65"
+      }
+    },
+    {
+      "name": "decision-records",
+      "source": {
+        "source": "git-subdir",
+        "url": "fvadicamo/dev-agent-skills",
+        "path": "plugins/decision-records",
+        "ref": "v1.16.0",
+        "sha": "8e710c57b4aa34fec63752ccf04a47adb4a8be65"
+      }
     }
   ]
 }
